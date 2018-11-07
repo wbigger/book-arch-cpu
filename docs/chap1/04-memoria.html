@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>La memoria - Sistemi e Reti - Architettura del Processore</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Materiale di supporto alle lezioni.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="../chap1/01-README.html"><strong aria-hidden="true">2.</strong> Che cos'è un computer?</a></li><li><a href="../chap1/02-raspberry.html"><strong aria-hidden="true">3.</strong> Raspberry PI</a></li><li><a href="../chap1/03-processore.html"><strong aria-hidden="true">4.</strong> Il Processore</a></li><li><a href="../chap1/04-memoria.html" class="active"><strong aria-hidden="true">5.</strong> La memoria</a></li><li><a href="../chap1/05-somma.html"><strong aria-hidden="true">6.</strong> Somma di interi in C</a></li><li><a href="../chap1/06-ALU.html"><strong aria-hidden="true">7.</strong> ALU</a></li><li><a href="../chap1/07-hack.html"><strong aria-hidden="true">8.</strong> Hack &amp; Security</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Sistemi e Reti - Architettura del Processore</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#la-memoria" id="la-memoria"><h1>La memoria</h1></a>
+<p>Il secondo componente fondamentale dei computer è la <em>memoria</em>.</p>
+<p>Prima di tutto una precisazione: quando ora parliamo di memoria, intendiamo un tipo specifico chiamato
+<em>memoria primaria</em>: generalmente è costituita dalla RAM, ovvero <em>Random Access Memory</em>, memoria ad accesso casuale.</p>
+<div>
+<p align="center">
+<img title="RAM" src='./assets/ram.png' width='50%'>
+</p>
+<p align="center">
+<em>Diversi tipi di RAM. Fonte: wikipedia</em>
+</p>
+</div>
+<p>La caratteristica principale è che, come dice il nome, si può accedere a qualsiasi parte di questo tipo di memoria
+semplicemente conoscendone la posizione, che è rappresentato da un numero intero. Questo numero viene anche detto <em>indirizzo</em>.
+Al contrario, altri tipi di memoria come l'hard-disk, devono essere acceduti in maniera <em>sequenziale</em>: per poter accedere ad una certa porzione di memoria, bisogna prima <em>scorrere</em> parte della memoria precedente: questo la rende ovviamente molto più lenta.</p>
+<p>Possiamo immaginare la RAM come un lunghissimo nastro, diviso in caselle, proprio come il nastro della macchina di Turing.</p>
+<div>
+<p align="center">
+<img title="Turing machine" src='./assets/turing-machine.jpg' width='70%'>
+</p>
+<p align="center">
+<em>Un esempio di macchina di Turing. Fonte: wikipedia</em>
+</p>
+</div>
+<p>Come dicevamo, la caratteristica di questa memoria è che si può accedere a qualsiasi casella, basta saperne l'indirizzo. Per convenzione e comodità, si usano i numeri esaedecimali per indicare l'indirizzo.</p>
+<p>Torniamo al caso della nostra Raspberry. Per sapere la dimensione della memoria, possiamo usare il seguente comando da terminale.</p>
+<pre><code>$ cat /proc/meminfo
+MemTotal:         949580 kB
+MemFree:          335800 kB
+MemAvailable:     698964 kB
+Buffers:          196460 kB
+Cached:           218844 kB
+SwapCached:            0 kB
+Active:           282936 kB
+Inactive:         290512 kB
+...
+</code></pre>
+<blockquote>
+<p>Potete eseguire lo stesso comando anche sul vostro dispositivo Android.</p>
+</blockquote>
+<p>L'output del comando è molto lungo, ho omesso la parte finale per brevità. Il dato che ci interessa in particolare è il primo: memoria totale pari a 949580 kB. Per convertirlo in byte, dobbiamo sapere quanto vale un <code>kB</code>: normalmente il prefisso <code>k</code> sta per kilo e significa 1000, ma in questo caso il kernel (che gestisce <code>/proc/meminfo</code>) usa una convenzione sua e vale 1024 :(.</p>
+<p>Calcoliamo il numero totale di byte della memoria, e convertiamolo in esadecimale:</p>
+<pre><code>949580 kB = 949580 * 1024 = 972369920 (in base 10) = 0x39F53000 (in base 16)
+</code></pre>
+<p>Quindi, noi avremo un &quot;nastro&quot; di memoria RAM a cui possiamo accedere usando un indirizzo da 0x00000000 a 0x39F53000.</p>
+<p align="center">
+<img title="RAM as a tape" src='./assets/ram-tape.png' width='90%'>
+</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../chap1/03-processore.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../chap1/05-somma.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../chap1/03-processore.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../chap1/05-somma.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

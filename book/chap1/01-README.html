@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Che cos'è un computer? - Sistemi e Reti - Architettura del Processore</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Materiale di supporto alle lezioni.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="../chap1/01-README.html" class="active"><strong aria-hidden="true">2.</strong> Che cos'è un computer?</a></li><li><a href="../chap1/02-raspberry.html"><strong aria-hidden="true">3.</strong> Raspberry PI</a></li><li><a href="../chap1/03-processore.html"><strong aria-hidden="true">4.</strong> Il Processore</a></li><li><a href="../chap1/04-memoria.html"><strong aria-hidden="true">5.</strong> La memoria</a></li><li><a href="../chap1/05-somma.html"><strong aria-hidden="true">6.</strong> Somma di interi in C</a></li><li><a href="../chap1/06-ALU.html"><strong aria-hidden="true">7.</strong> ALU</a></li><li><a href="../chap1/07-hack.html"><strong aria-hidden="true">8.</strong> Hack &amp; Security</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Sistemi e Reti - Architettura del Processore</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#che-cosè-un-computer" id="che-cosè-un-computer"><h1>Che cos'è un computer?</h1></a>
+<p>Prima di parlare del processore, dobbiamo avere bene in mente che cos'è un computer, ed in particolare che cos'è un computer <em>oggi</em> come lo conosciamo noi.</p>
+<a class="header" href="#computer--processore--memoria-breve-storia" id="computer--processore--memoria-breve-storia"><h2>Computer = processore + memoria (breve storia)</h2></a>
+<p>Volendo semplificare al massimo, i computer che usiamo di solito sono composti da due unità fondamentali <em>distinte</em>:</p>
+<ul>
+<li><em>processore</em>, che esegue calcoli ed operazioni</li>
+<li><em>memoria</em>, che immagazzina le informazioni (dati e istruzioni) che devono essere usate dal processore</li>
+</ul>
+<p>Questo tipo di divisione ha una storia che percorre tutto il secolo scorso. Nasce dalla macchina ideale di Turing, descritta da <a href="https://it.wikipedia.org/wiki/Alan_Turing">Alan Turing</a> nel 1936. [pag. ]</p>
+<blockquote>
+<p>La storia di Alan Turing è molto interessante, recentemente ne hanno tratto un film chiamato <a href="https://it.wikipedia.org/wiki/The_Imitation_Game">The Imitation Game</a>. Nato a Londra nel 1912, è considerato uno dei padri dell'informatica ed è stato un grande matematico; viene anche considerato il fondatore dell'intelligenza artificiale (molto famoso è il <a href="https://it.wikipedia.org/wiki/Test_di_Turing">Test di Turing</a>, presentato in un articolo del 1950). Curiosità: Turing fu trovato morto l'8 giugno 1954 per avvelenamento nel suo letto, accanto a lui c'era una mela con un morso; probabilmente si trattò di un suicidio a causa della persecuzione legale per omosessualità. Anche se non c'è una fonte ufficiale, si dice che Steve Jobs decise di scegliere la mela morsicata come logo della sua azienda proprio in omaggio a Turing.</p>
+</blockquote>
+<p>Il modello ideale (cioé non realizzabile nella pratica) di Turing fu ripreso da <a href="https://it.wikipedia.org/wiki/John_von_Neumann">John von Neumann</a> (si legge fòn nòimann) che realizzò nel 1949 la prima macchina digitale programmabile, chiamata EDVAC.</p>
+<blockquote>
+<p>John von Neumann nacque a Budapest (Ungheria) nel 1903 ma naturalizzato americano dopo il suo trasferimento negli USA a causa delle persecuzione nazista. Anche lui è considerato uno dei padri dell'informatica ed uno dei più importanti scienziati del '900. Il suo contributo alla scienza fa dalla matematica alla statistica, alla fisica quantistica e, ovviamente, all'informatica che stava nascendo proprio in quel periodo. Fu uno dei più grandi sostenitori della bomba atomica e del suo utilizzo militare nel <a href="https://it.wikipedia.org/wiki/Progetto_Manhattan">Progetto Manhattan</a>; questo fervore lo rese una figura controversa nel dopoguerra.</p>
+</blockquote>
+<p>Ancora oggi la maggior parte dei computer che utilizziamo si basa sull'architettura di Von Neumann: come abbiamo detto all'inizio, l'unità di computazione è nettamente separata da quella di memorizzazione dei dati e delle istruzioni.</p>
+<blockquote>
+<p>Non tutti i sistemi di elaborazione delle informazioni funzionano con questa separazione: ad esempio, il cervello è costituito da una <em>rete neurale</em> (un insieme di <em>sinapsi</em> collegate fra loro) che ha la funzione sia di processare che di memorizzare le informazioni. Vedi la <a href="./assets/dionisi-bn.pdf">ricerca</a> svolta da Lorenzo Dionisi a riguardo.</p>
+</blockquote>
+<blockquote>
+<p>Può un computer pensare? Domanda molto difficile a cui rispondere, ovviamente. Per sapere lo stato
+dell'arte in questo momento sul tema, vi consiglio di seguire il corso <a href="https://www.coursera.org/learn/philosophy">Introduction to Philosophy</a> dell'Università di Edinburgo. Se volete arrivare subito alla parte su mente, cervello e computer, potete saltare direttamente alla settimana 4; vi consiglio comunque di seguire tutto il corso, è molto interessante. Il corso è gratuito, in lingua inglese con sottotitoli disponibili in italiano.</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../chap1/02-raspberry.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../chap1/02-raspberry.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

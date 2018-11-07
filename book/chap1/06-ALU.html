@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>ALU - Sistemi e Reti - Architettura del Processore</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Materiale di supporto alle lezioni.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Benvenuti</a></li><li><a href="../chap1/01-README.html"><strong aria-hidden="true">2.</strong> Che cos'è un computer?</a></li><li><a href="../chap1/02-raspberry.html"><strong aria-hidden="true">3.</strong> Raspberry PI</a></li><li><a href="../chap1/03-processore.html"><strong aria-hidden="true">4.</strong> Il Processore</a></li><li><a href="../chap1/04-memoria.html"><strong aria-hidden="true">5.</strong> La memoria</a></li><li><a href="../chap1/05-somma.html"><strong aria-hidden="true">6.</strong> Somma di interi in C</a></li><li><a href="../chap1/06-ALU.html" class="active"><strong aria-hidden="true">7.</strong> ALU</a></li><li><a href="../chap1/07-hack.html"><strong aria-hidden="true">8.</strong> Hack &amp; Security</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Sistemi e Reti - Architettura del Processore</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#arithmetic-logic-unit" id="arithmetic-logic-unit"><h1>Arithmetic Logic Unit</h1></a>
+<p>Facciamo un ulteriore passo avanti verso la comprensione di come funziona nel dettaglio l'elaborazione dei dati in un computer. Nella pagina precedente abbiamo visto che uno dei comandi che può interpretare il processore è <code>add</code>.</p>
+<p>Ricordiamo ancora una volta che una delle linee guida più importanti nella progettazione del processore è l'efficienza: operazioni molto comuni come la somma deve essere effettuata nel modo più veloce teoricamente possibile. Per questo motivo è stata ideata un'unità dedicata, chiamata Arithmetic Logic Unit (ALU).</p>
+<div>
+<p align="center">
+<img title="ALU" src='./assets/alu.gif' width='90%'>
+</p>
+<p align="center">
+<em>Rappresentazione grafica di una ALU.<br>Fonte: <a href="//commons.wikimedia.org/wiki/User:Lambtron" title="User:Lambtron">Lambtron</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=36975996">Link</a></em>
+</p>
+</div>
+<blockquote>
+<p>L'idea di ALU è stata proposta da von Neumann stesso insiema al primo computer, EDVAC. La prima implementazione su circuito integrato è del 1967.</p>
+</blockquote>
+<p>Come funziona in pratica? L'ALU all'interno ha un circuito disegnato appositamente per fare alcune operazioni logiche (es. AND, OR, NOT, XOR) e matematiche (es. somma di binari, complemento a due). Esiste un progetto su Minecraft che spiega nel dettaglio come è possibile realizzare un ALU completamente funzionante usando le pietre rosse (<a href="https://minecraft.gamepedia.com/Redstone_Dust">Redstone</a>) e relativi componenti. Un video di una ALU realizzata in pietra rossa è disponibile <a href="https://www.youtube.com/watch?v=LGkkyKZVzug">qui</a>.</p>
+<a class="header" href="#somma-di-interi" id="somma-di-interi"><h2>Somma di interi</h2></a>
+<p>La somma di interi in binario funziona esattamente come la somma in decimale che abbiamo imparato alle elementari, con la sola differenza che:</p>
+<ul>
+<li>abbiamo solo due simboli disponibili <code>0</code> e <code>1</code> (non dieci)</li>
+<li>il riporto deve essere fatto quando si supera il valore <code>1</code> (e non <code>9</code>)</li>
+</ul>
+<p>Ad esempio:</p>
+<pre><code>// Quanto fa 6+5?
+2 --converto in binario--&gt; 10
+3 --converto in binario--&gt; 11
+
+// 1. Metto i numeri in colonna
+  10 +
+  11 =
+------
+
+
+// 2. Sommo la colonna più a destra
+ 10 +
+ 11 =
+------
+  1
+
+// 3. Passo alla colonna successiva: 1+1 fa 0 col riporto di 1
+ 10 +
+ 11 =
+------
+101   --converto in decimale--&gt; 5  OK, ci torna!
+
+</code></pre>
+<a class="header" href="#rappresentazione-dei-numeri-negativi" id="rappresentazione-dei-numeri-negativi"><h2>Rappresentazione dei numeri negativi</h2></a>
+<p>Come rappresentiamo i numeri negativi? Ricordiamoci che il processore capisce solo 0 e 1, quindi non abbiamo modo di scrivere il segno &quot;-&quot; davanti ad un numero.</p>
+<p>Una soluzione che sembra semplice, ed è stata utilizzata nei primi anni dell'informatica (anni '50 e '60 del secolo scorso) è quella di usare il primo bit del numero come segno. Questo rappresentazione è chiamata <em>complemento a uno</em>. Ipotizziamo di avere una rappresentazione del nostro numero binario a 4 bit:</p>
+<pre><code>// Primo bit 0, numero positivo
+0101  --&gt; +5
+// Primo bit 1, numero negativo
+1101  --&gt; -5
+</code></pre>
+<p>Questa rappresentazione ha diversi inconvenienti, principalmente:</p>
+<ul>
+<li>non è semplicissimo matematicamente fare somme</li>
+<li>il valore 0 ha due rappresentazioni: <code>0000</code> e <code>1000</code></li>
+</ul>
+<a class="header" href="#complemento-a-due" id="complemento-a-due"><h3>Complemento a due</h3></a>
+<p>Attualmente tutti i processori e relative ALU utilizzano un altro sistema, chiamata <em>complemento a due</em>. Per rappresentare un numero negativo, si usano i seguenti passi:</p>
+<ol>
+<li>prendo il valore positivo</li>
+<li>inverto tutti i bit</li>
+<li>sommo 1</li>
+</ol>
+<p>Esempio:</p>
+<pre><code>// Voglio rappresentare il numero -5
+// 1. prendo il valore positivo
+0101
+// 2. inverto i bit
+1010
+// 3. aggiungo 1
+1011
+</code></pre>
+<p>Quindi la rappresentazione di <code>-5</code> in complemento a due è <code>1011</code>.</p>
+<p>Per tornare da rappresentazione binaria in complemento a due a decimale, basta fare l'operazione inversa:</p>
+<pre><code>// Quanto vale 1001?
+// 1. sottraggo 1
+1000
+// 2. inverto i bit
+0111 --&gt; +7
+// 3. cambio di segno
++7 --&gt; -7
+</code></pre>
+<a class="header" href="#somma-con-numeri-negativi" id="somma-con-numeri-negativi"><h2>Somma con numeri negativi</h2></a>
+<p>In questo modo fare le somme tra numeri è &quot;gratis&quot;: basta che eseguo la somma come abbiamo visto poco fa, trasformando la differenza in una somma.</p>
+<pre><code>// Quanto fa 7-5?
+// La sottrazione può essere riscritta come: 7+(-5)
+// Converto i numeri in binario
+7 --&gt; 0111
+-5 --&gt; 1011
+// Eseguo la somma
+0111 +
+1011 =
+------
+0010   --&gt; +2    OK, ci torna!
+</code></pre>
+<blockquote>
+<p>Per approfondimenti ed esercizi, vi consiglio di consultare questo <a href="http://chortle.ccsu.edu/assemblytutorial/Chapter-08/ass08_1.html">tutorial</a>.</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../chap1/05-somma.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../chap1/07-hack.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../chap1/05-somma.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../chap1/07-hack.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

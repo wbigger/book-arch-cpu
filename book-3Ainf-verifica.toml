@@ -1,0 +1,8 @@
+[book]
+title = "Sistemi e Reti - Architettura del Processore - Verifica"
+author = "Claudio Capobianco"
+description = "Materiale di supporto alle lezioni."
+
+[build]
+build-dir = "book-3Ainf"
+create-missing = true

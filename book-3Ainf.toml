@@ -1,0 +1,8 @@
+[book]
+title = "Sistemi e Reti - Architettura del Processore"
+author = "Claudio Capobianco"
+description = "Materiale di supporto alle lezioni."
+
+[build]
+build-dir = "book"
+create-missing = true
