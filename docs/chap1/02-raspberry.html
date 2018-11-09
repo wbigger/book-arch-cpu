@@ -154,15 +154,37 @@ gli argomenti. Per semplicità, per questo corso ho scelto di usare la Raspberry
 <p align="center">
 <img title="rpi-fronte-cpu" src='./assets/rpi-retro.jpg' width='70%'>
 </p>
-<a class="header" href="#accensione" id="accensione"><h2>Accensione</h2></a>
-<p>Per scaricare e installare il sistema operativo, potete seguire la guida ufficiale <a href="https://www.raspberrypi.org/downloads/raspbian/">qui</a>. Avrete bisogno di una scheda SDCard, oltre ovviamente alla Raspberry; vi coniglio una scheda da 8 GB.</p>
+<a class="header" href="#accedere-al-terminale" id="accedere-al-terminale"><h2>Accedere al terminale</h2></a>
+<a class="header" href="#raspberry-pi-personale" id="raspberry-pi-personale"><h3>Raspberry PI personale</h3></a>
+<p>Se avete a disposizione a casa una Raspberry, potete usarla per questo corso, è la scelta raccomandata.</p>
+<p>Se non l'avete già fatto, scaricate e installate il sistema operativo seguendo la <a href="https://www.raspberrypi.org/downloads/raspbian/">guida ufficiale</a>. Avrete bisogno di una scheda SDCard; vi consiglio una scheda da 8, 16 o 32 GB.</p>
 <p>Una volta accesa, aprite un terminale premendo sull'icona con lo schermino nero nella barra in alto, a sinistra. Vi comparirà una schermata simile a quella qui sotto.</p>
 <p align="center">
 <img title=rpi terminal" src='./assets/terminal.png' width='70%'>
 </p>
-<blockquote>
-<p>A breve sarà resa disponibile una Raspberry della scuola a cui potrete accedere da remoto. Nel frattempo, potete usare un qualsiasi smartphone Android per fare i test che seguiranno. Vi basta installare l'applicazione Termux ed aprirla, per avere un terminale molto simile a quello della Raspberry. Per usare i tasti speciali (es. ctrl, esc, tab, etc.), molto utili da terminale, potete consultare <a href="https://wiki.termux.com/wiki/Touch_Keyboard">questa</a> guida o premere la combinazione &quot;Volume up + q&quot;.</p>
-</blockquote>
+<a class="header" href="#raspberry-pi-remota" id="raspberry-pi-remota"><h3>Raspberry PI remota</h3></a>
+<p>Se non avete una Raspberry, potete usare quella della scuola collegandovi via SSH. Potete collegarvi da desktop con Google Chrome o da smartphone con Termius.</p>
+<a class="header" href="#desktop" id="desktop"><h4>Desktop</h4></a>
+<p>Aprite Chrome e installate l'estensione <a href="https://chrome.google.com/webstore/detail/secure-shell-extension/iodihamcpbpeioajjeobimgagajmlibd">Secure Shell Extension</a>. Vi comparirà l'icona del terminale in alto a destra.</p>
+<p align="center">
+<img title=rpi terminal" src='./assets/chsh0.png' width='70%'>
+</p>
+<p>Cliccateci sopra, andate su Connect Dialog, sia aprirà una finestra come quella qui sotto.</p>
+<p align="center">
+<img title=rpi terminal" src='./assets/chsh.png' width='70%'>
+</p>
+Inserite username e hostname che vi sono stati forniti a lezione.
+<a class="header" href="#smartphone" id="smartphone"><h4>Smartphone</h4></a>
+<p>Istruzioni valide sia per iOS (iPhone, iPad) che Android.</p>
+<p>Scaricate l'applicazione <a href="https://www.termius.com/">Termius</a> ed apritela.</p>
+<p align="center">
+<img title=rpi terminal" src='./assets/termius.png' width='30%'>
+</p>
+<p>Cliccate sul + in basso a destra, quindi &quot;New Host&quot;, come Alias mettere &quot;Raspberry Marconi&quot; e in hostname, username e password quelli che vi sono stati forniti a lezione.</p>
+<a class="header" href="#android-in-locale" id="android-in-locale"><h3>Android in locale</h3></a>
+<p>Se non avete una Raspberry ma volete comunque fare gli esercizi in locale, senza una connessione Internet, potete  usare un qualsiasi smartphone Android. Vi basta installare l'applicazione <a href="https://termux.com/">Termux</a> per avere un terminale molto simile a quello della Raspberry. Per usare i tasti speciali (es. ctrl, esc, tab, etc.), molto utili da terminale, potete consultare <a href="https://wiki.termux.com/wiki/Touch_Keyboard">questa</a> guida; TL;TR premete la combinazione &quot;Volume up + q&quot;.</p>
+<a class="header" href="#computer-linux" id="computer-linux"><h3>Computer Linux</h3></a>
+<p>Se avete un computer con il sistema operativo Linux (es. Ubuntu o Mint), potete provare ad usarlo per questo corso. I risultati potrebbero essere un po' diversi ed alcuni comandi potrebbero non funzionare, ma con un po' di buona volontà si riesce a far tutto :)</p>
 <a class="header" href="#analisi-software-e-hardware" id="analisi-software-e-hardware"><h2>Analisi software e hardware</h2></a>
 <p>Dal terminale voi avete pieno controllo di tutto il sistema della vostra macchina. Cominciamo con richiedere le informazioni essenziali attraverso il seguente comando. <strong>ATTENZIONE</strong>: i comandi nelle guide come questa per convenzione vengono preceduti dal carattere dollaro <code>$</code>, per far capire che è un comando da terminale; voi <strong>non</strong> dovete copiare il dollaro! Tutto ciò che segue e che non è preceduto dal dollaro, è l'output del terminale (cioé quello che viene restituito dal comando).</p>
 <pre><code>$ uname -a
