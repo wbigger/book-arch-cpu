@@ -94,7 +94,8 @@ Per tornare da rappresentazione binaria in complemento a due a decimale, basta f
 ```
 
 ## Somma con numeri negativi
-In questo modo fare le somme tra numeri è "gratis": basta che eseguo la somma come abbiamo visto poco fa, trasformando la differenza in una somma.
+In questo modo fare le somme tra numeri è "gratis": posso eseguire la somma come abbiamo già imparato, ricordandoci che una sottrazione può sempre essere riscritta come una somma tra numeri con segno.
+
 ```
 // Quanto fa 7-5?
 // La sottrazione può essere riscritta come: 7+(-5)
