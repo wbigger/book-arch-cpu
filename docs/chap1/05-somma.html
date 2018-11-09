@@ -159,7 +159,14 @@ utilizzeremo il linguaggio C perché è quello che ha meno &quot;passaggi&quot; 
   return 0;
 }
 </code></pre>
-<p>Salviamo questo snippet di codice in un file <code>main.c</code>, lo compiliamolo con <code>gcc</code> e ci facciamo generare l'assembly con l'opzione <code>-S</code>:</p>
+<p>Per salvare questo file in locale, utilizzate l'editor <code>nano</code>.</p>
+<pre><code>$ nano
+</code></pre>
+<p>Ricopiate il codice sopra, salvatelo con <code>ctrl-o</code> con il nome <code>main.c</code>, ed uscite dall'editor con <code>ctrl-x</code>.</p>
+<blockquote>
+<p>Un alternativa più professionale a nano è vim, lo trovate già installato sulla Raspberry. Un tutorial efficace e divertente per imparare a usare vim è <a href="https://vim-adventures.com/">Vim Adventures</a>.</p>
+</blockquote>
+<p>Ora compiliamo il file con <code>gcc</code> e ci facciamo generare l'assembly con l'opzione <code>-S</code>:</p>
 <pre><code>$ gcc -S main.c
 </code></pre>
 <p>Otteniamo un output simile al seguente:</p>
