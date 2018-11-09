@@ -21,15 +21,51 @@ Dov'è la RAM? Per trovarla dobbiamo girare la scheda e guardare sul retro. Il c
 <img title="rpi-fronte-cpu" src='./assets/rpi-retro.jpg' width='70%'>
 </p>
 
-## Accensione
-Per scaricare e installare il sistema operativo, potete seguire la guida ufficiale [qui](https://www.raspberrypi.org/downloads/raspbian/). Avrete bisogno di una scheda SDCard, oltre ovviamente alla Raspberry; vi coniglio una scheda da 8 GB.
+## Accedere al terminale
+### Raspberry PI personale
+Se avete a disposizione a casa una Raspberry, potete usarla per questo corso, è la scelta raccomandata.
+
+Se non l'avete già fatto, scaricate e installate il sistema operativo seguendo la [guida ufficiale](https://www.raspberrypi.org/downloads/raspbian/). Avrete bisogno di una scheda SDCard; vi consiglio una scheda da 8, 16 o 32 GB.
 
 Una volta accesa, aprite un terminale premendo sull'icona con lo schermino nero nella barra in alto, a sinistra. Vi comparirà una schermata simile a quella qui sotto.
 <p align="center">
 <img title=rpi terminal" src='./assets/terminal.png' width='70%'>
 </p>
 
-> A breve sarà resa disponibile una Raspberry della scuola a cui potrete accedere da remoto. Nel frattempo, potete usare un qualsiasi smartphone Android per fare i test che seguiranno. Vi basta installare l'applicazione Termux ed aprirla, per avere un terminale molto simile a quello della Raspberry. Per usare i tasti speciali (es. ctrl, esc, tab, etc.), molto utili da terminale, potete consultare [questa](https://wiki.termux.com/wiki/Touch_Keyboard) guida o premere la combinazione "Volume up + q".
+### Raspberry PI remota
+Se non avete una Raspberry, potete usare quella della scuola collegandovi via SSH. Potete collegarvi da desktop con Google Chrome o da smartphone con Termius.
+
+#### Desktop
+Aprite Chrome e installate l'estensione [Secure Shell Extension](https://chrome.google.com/webstore/detail/secure-shell-extension/iodihamcpbpeioajjeobimgagajmlibd). Vi comparirà l'icona del terminale in alto a destra.
+
+<p align="center">
+<img title=rpi terminal" src='./assets/chsh0.png' width='70%'>
+</p>
+
+Cliccateci sopra, andate su Connect Dialog, sia aprirà una finestra come quella qui sotto.
+
+<p align="center">
+<img title=rpi terminal" src='./assets/chsh.png' width='70%'>
+</p>
+Inserite username e hostname che vi sono stati forniti a lezione.
+
+#### Smartphone
+Istruzioni valide sia per iOS (iPhone, iPad) che Android.
+
+Scaricate l'applicazione [Termius](https://www.termius.com/) ed apritela.
+
+<p align="center">
+<img title=rpi terminal" src='./assets/termius.png' width='30%'>
+</p>
+
+Cliccate sul + in basso a destra, quindi "New Host", come Alias mettere "Raspberry Marconi" e in hostname, username e password quelli che vi sono stati forniti a lezione.
+
+### Android in locale
+Se non avete una Raspberry ma volete comunque fare gli esercizi in locale, senza una connessione Internet, potete  usare un qualsiasi smartphone Android. Vi basta installare l'applicazione [Termux](https://termux.com/) per avere un terminale molto simile a quello della Raspberry. Per usare i tasti speciali (es. ctrl, esc, tab, etc.), molto utili da terminale, potete consultare [questa](https://wiki.termux.com/wiki/Touch_Keyboard) guida; TL;TR premete la combinazione "Volume up + q".
+
+### Computer Linux
+Se avete un computer con il sistema operativo Linux (es. Ubuntu o Mint), potete provare ad usarlo per questo corso. I risultati potrebbero essere un po' diversi ed alcuni comandi potrebbero non funzionare, ma con un po' di buona volontà si riesce a far tutto :)
+
 
 ## Analisi software e hardware
 Dal terminale voi avete pieno controllo di tutto il sistema della vostra macchina. Cominciamo con richiedere le informazioni essenziali attraverso il seguente comando. **ATTENZIONE**: i comandi nelle guide come questa per convenzione vengono preceduti dal carattere dollaro `$`, per far capire che è un comando da terminale; voi **non** dovete copiare il dollaro! Tutto ciò che segue e che non è preceduto dal dollaro, è l'output del terminale (cioé quello che viene restituito dal comando).  
