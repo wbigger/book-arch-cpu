@@ -32,7 +32,7 @@ $ nano
 
  Ricopiate il codice sopra, salvatelo con `ctrl-o` con il nome `main.c`, ed uscite dall'editor con `ctrl-x`.
 
-> Un alternativa più professionale a nano è vim, lo trovate già installato sulla Raspberry. Un tutorial efficace e divertente per imparare a usare vim è [Vim Adventures](https://vim-adventures.com/).
+> Un alternativa più professionale a `nano` è `vim`, lo trovate già installato sulla Raspberry. Un tutorial efficace e divertente per imparare a usare vim è [Vim Adventures](https://vim-adventures.com/).
 
 Ora compiliamo il file con `gcc` e ci facciamo generare l'assembly con l'opzione `-S`:
 
