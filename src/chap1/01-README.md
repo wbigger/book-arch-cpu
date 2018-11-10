@@ -7,7 +7,7 @@ Volendo semplificare al massimo, i computer che usiamo di solito sono composti d
 - _processore_, che esegue calcoli ed operazioni
 - _memoria_, che immagazzina le informazioni (dati e istruzioni) che devono essere usate dal processore
 
-Questo tipo di divisione ha una storia che percorre tutto il secolo scorso. Nasce dalla macchina ideale di Turing, descritta da [Alan Turing](https://it.wikipedia.org/wiki/Alan_Turing) nel 1936. [pag. ]
+Questo tipo di divisione ha una storia che percorre tutto il secolo scorso. Nasce dalla macchina ideale di Turing, descritta da [Alan Turing](https://it.wikipedia.org/wiki/Alan_Turing) nel 1936. [pagg. 2-3 incluso il box "Macchina di Turing"]
 
 > La storia di Alan Turing è molto interessante, recentemente ne hanno tratto un film chiamato [The Imitation Game](https://it.wikipedia.org/wiki/The_Imitation_Game). Nato a Londra nel 1912, è considerato uno dei padri dell'informatica ed è stato un grande matematico; viene anche considerato il fondatore dell'intelligenza artificiale (molto famoso è il [Test di Turing](https://it.wikipedia.org/wiki/Test_di_Turing), presentato in un articolo del 1950). Curiosità: Turing fu trovato morto l'8 giugno 1954 per avvelenamento nel suo letto, accanto a lui c'era una mela con un morso; probabilmente si trattò di un suicidio a causa della persecuzione legale per omosessualità. Anche se non c'è una fonte ufficiale, si dice che Steve Jobs decise di scegliere la mela morsicata come logo della sua azienda proprio in omaggio a Turing.
 
