@@ -3,7 +3,7 @@
 Come qualsiasi altro componente di un sistema, fisico o software, anche i processori hanno delle vulnerabilità che devono essere conosciute.
 
 Le vulnerabilità dei processori hanno fatto notizia all'inizio di quest'anno
-con la divulgazione di due criticità che coinvolgono moltissimi processori attualmente in commericio: Meltdown e Spectre.
+con la divulgazione di due criticità che coinvolgono moltissimi processori attualmente in commercio: Meltdown e Spectre.
 
 Meltdown e Spectre sono chiamati _side-channel attacks_ perché sfruttano l'implementazione fisica di alcuni algoritmi, e si contrappongono principalmente ai _brute force attacks_ che invece si basano, come dice il nome, su attacchi a "forza bruta".
 
