@@ -187,7 +187,7 @@ Inserite username e hostname che vi sono stati forniti a lezione.
 <p>Se avete un computer con il sistema operativo Linux (es. Ubuntu o Mint), potete provare ad usarlo per questo corso. I risultati potrebbero essere un po' diversi ed alcuni comandi potrebbero non funzionare, ma con un po' di buona volontà si riesce a far tutto :)</p>
 <a class="header" href="#analisi-software-e-hardware" id="analisi-software-e-hardware"><h2>Analisi software e hardware</h2></a>
 <p>Dal terminale voi avete pieno controllo di tutto il sistema della vostra macchina. Cominciamo con richiedere le informazioni essenziali attraverso il seguente comando. <strong>ATTENZIONE</strong>: i comandi nelle guide come questa per convenzione vengono preceduti dal carattere dollaro <code>$</code>, per far capire che è un comando da terminale; voi <strong>non</strong> dovete copiare il dollaro! Tutto ciò che segue e che non è preceduto dal dollaro, è l'output del terminale (cioé quello che viene restituito dal comando).</p>
-<pre><code>$ uname -a
+<pre><code class="language-sh">$ uname -a
 Linux raspberrypi 4.9.80-v7+ #1098 SMP Fri Mar 9 19:11:42 GMT 2018 armv7l GNU/Linux
 </code></pre>
 <p>Analizziamo alcune cose importanti di quello che ci restituisce:</p>
@@ -203,7 +203,7 @@ Linux raspberrypi 4.9.80-v7+ #1098 SMP Fri Mar 9 19:11:42 GMT 2018 armv7l GNU/Li
 <p>Se usate il vostro smartphone Android, avrete dei risultati leggermente diversi ma comunque simili.</p>
 </blockquote>
 <p>Analizziamo meglio il processore attraverso il comando <code>lscpu</code>:</p>
-<pre><code>$ lscpu
+<pre><code class="language-sh">$ lscpu
 Architecture:          armv7l
 Byte Order:            Little Endian
 CPU(s):                4

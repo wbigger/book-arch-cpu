@@ -225,7 +225,7 @@ Inserite username e hostname che vi sono stati forniti a lezione.
 <p>Se avete un computer con il sistema operativo Linux (es. Ubuntu o Mint), potete provare ad usarlo per questo corso. I risultati potrebbero essere un po' diversi ed alcuni comandi potrebbero non funzionare, ma con un po' di buona volontà si riesce a far tutto :)</p>
 <a class="header" href="#analisi-software-e-hardware" id="analisi-software-e-hardware"><h2>Analisi software e hardware</h2></a>
 <p>Dal terminale voi avete pieno controllo di tutto il sistema della vostra macchina. Cominciamo con richiedere le informazioni essenziali attraverso il seguente comando. <strong>ATTENZIONE</strong>: i comandi nelle guide come questa per convenzione vengono preceduti dal carattere dollaro <code>$</code>, per far capire che è un comando da terminale; voi <strong>non</strong> dovete copiare il dollaro! Tutto ciò che segue e che non è preceduto dal dollaro, è l'output del terminale (cioé quello che viene restituito dal comando).</p>
-<pre><code>$ uname -a
+<pre><code class="language-sh">$ uname -a
 Linux raspberrypi 4.9.80-v7+ #1098 SMP Fri Mar 9 19:11:42 GMT 2018 armv7l GNU/Linux
 </code></pre>
 <p>Analizziamo alcune cose importanti di quello che ci restituisce:</p>
@@ -241,7 +241,7 @@ Linux raspberrypi 4.9.80-v7+ #1098 SMP Fri Mar 9 19:11:42 GMT 2018 armv7l GNU/Li
 <p>Se usate il vostro smartphone Android, avrete dei risultati leggermente diversi ma comunque simili.</p>
 </blockquote>
 <p>Analizziamo meglio il processore attraverso il comando <code>lscpu</code>:</p>
-<pre><code>$ lscpu
+<pre><code class="language-sh">$ lscpu
 Architecture:          armv7l
 Byte Order:            Little Endian
 CPU(s):                4
@@ -353,7 +353,7 @@ memoria, ed effettuare semplici operazioni. Il processore inizia e finisce in un
 </ol>
 <p>OK, sembra che ci siamo. Proviamo a vedere se funziona effettivamente così. Per verificare,
 utilizzeremo il linguaggio C perché è quello che ha meno &quot;passaggi&quot; dal codice sorgente al compilato.</p>
-<pre><code>int main() {
+<pre><code class="language-c">int main() {
   int a = 12;
   int b = 32;
   int c = a + b;
@@ -361,17 +361,17 @@ utilizzeremo il linguaggio C perché è quello che ha meno &quot;passaggi&quot; 
 }
 </code></pre>
 <p>Per salvare questo file in locale, utilizzate l'editor <code>nano</code>.</p>
-<pre><code>$ nano
+<pre><code class="language-sh">$ nano
 </code></pre>
 <p>Ricopiate il codice sopra, salvatelo con <code>ctrl-o</code> con il nome <code>main.c</code>, ed uscite dall'editor con <code>ctrl-x</code>.</p>
 <blockquote>
 <p>Un alternativa più professionale a <code>nano</code> è <code>vim</code>, lo trovate già installato sulla Raspberry. Un tutorial efficace e divertente per imparare a usare vim è <a href="https://vim-adventures.com/">Vim Adventures</a>.</p>
 </blockquote>
 <p>Ora compiliamo il file con <code>gcc</code> e ci facciamo generare l'assembly con l'opzione <code>-S</code>:</p>
-<pre><code>$ gcc -S main.c
+<pre><code class="language-sh">$ gcc -S main.c
 </code></pre>
 <p>Otteniamo un output simile al seguente:</p>
-<pre><code>.arch armv6
+<pre><code class="language-text">.arch armv6
 .eabi_attribute 28, 1
 .eabi_attribute 20, 1
 .eabi_attribute 21, 1
@@ -418,7 +418,7 @@ bx	lr
 <p>Potete eseguire questi passi anche da Android. Dovrete installare prima gli strumenti di sviluppo con il comando <code>pkg install build-essential</code>.</p>
 </blockquote>
 <p>La parte che ci interessa è quella all'interno della sezione <code>main:</code>.</p>
-<pre><code>mov	r3, #12
+<pre><code class="language-text">mov	r3, #12
 str	r3, [fp, #-8]
 mov	r3, #32
 str	r3, [fp, #-12]
@@ -468,7 +468,7 @@ fino ad arrivare ad un risultato molto simile a quello presentato.</p>
 <li>il riporto deve essere fatto quando si supera il valore <code>1</code> (e non <code>9</code>)</li>
 </ul>
 <p>Ad esempio:</p>
-<pre><code>// Quanto fa 6+5?
+<pre><code class="language-text">// Quanto fa 6+5?
 2 --converto in binario--&gt; 10
 3 --converto in binario--&gt; 11
 
@@ -494,7 +494,7 @@ fino ad arrivare ad un risultato molto simile a quello presentato.</p>
 <a class="header" href="#rappresentazione-dei-numeri-negativi" id="rappresentazione-dei-numeri-negativi"><h2>Rappresentazione dei numeri negativi</h2></a>
 <p>Come rappresentiamo i numeri negativi? Ricordiamoci che il processore capisce solo 0 e 1, quindi non abbiamo modo di scrivere il segno &quot;-&quot; davanti ad un numero.</p>
 <p>Una soluzione che sembra semplice, ed è stata utilizzata nei primi anni dell'informatica (anni '50 e '60 del secolo scorso) è quella di usare il primo bit del numero come segno. Questo rappresentazione è chiamata <em>complemento a uno</em>. Ipotizziamo di avere una rappresentazione del nostro numero binario a 4 bit:</p>
-<pre><code>// Primo bit 0, numero positivo
+<pre><code class="language-text">// Primo bit 0, numero positivo
 0101  --&gt; +5
 // Primo bit 1, numero negativo
 1101  --&gt; -5
@@ -512,7 +512,7 @@ fino ad arrivare ad un risultato molto simile a quello presentato.</p>
 <li>sommo 1</li>
 </ol>
 <p>Esempio:</p>
-<pre><code>// Voglio rappresentare il numero -5
+<pre><code class="language-text">// Voglio rappresentare il numero -5
 // 1. prendo il valore positivo
 0101
 // 2. inverto i bit
@@ -522,7 +522,7 @@ fino ad arrivare ad un risultato molto simile a quello presentato.</p>
 </code></pre>
 <p>Quindi la rappresentazione di <code>-5</code> in complemento a due è <code>1011</code>.</p>
 <p>Per tornare da rappresentazione binaria in complemento a due a decimale, basta fare l'operazione inversa:</p>
-<pre><code>// Quanto vale 1001?
+<pre><code class="language-text">// Quanto vale 1001?
 // 1. sottraggo 1
 1000
 // 2. inverto i bit
@@ -532,7 +532,7 @@ fino ad arrivare ad un risultato molto simile a quello presentato.</p>
 </code></pre>
 <a class="header" href="#somma-con-numeri-negativi" id="somma-con-numeri-negativi"><h2>Somma con numeri negativi</h2></a>
 <p>In questo modo fare le somme tra numeri è &quot;gratis&quot;: posso eseguire la somma come abbiamo già imparato, ricordandoci che una sottrazione può sempre essere riscritta come una somma tra numeri con segno.</p>
-<pre><code>// Quanto fa 7-5?
+<pre><code class="language-text">// Quanto fa 7-5?
 // La sottrazione può essere riscritta come: 7+(-5)
 // Converto i numeri in binario
 7 --&gt; 0111
@@ -549,7 +549,7 @@ fino ad arrivare ad un risultato molto simile a quello presentato.</p>
 <a class="header" href="#hack--security" id="hack--security"><h1>Hack &amp; Security</h1></a>
 <p>Come qualsiasi altro componente di un sistema, fisico o software, anche i processori hanno delle vulnerabilità che devono essere conosciute.</p>
 <p>Le vulnerabilità dei processori hanno fatto notizia all'inizio di quest'anno
-con la divulgazione di due criticità che coinvolgono moltissimi processori attualmente in commericio: Meltdown e Spectre.</p>
+con la divulgazione di due criticità che coinvolgono moltissimi processori attualmente in commercio: Meltdown e Spectre.</p>
 <p>Meltdown e Spectre sono chiamati <em>side-channel attacks</em> perché sfruttano l'implementazione fisica di alcuni algoritmi, e si contrappongono principalmente ai <em>brute force attacks</em> che invece si basano, come dice il nome, su attacchi a &quot;forza bruta&quot;.</p>
 <p>Meltdown e Spectre si basano su alcune strategie di ottimizzazione del processore. Come abbiamo detto all'inizio di questo capitolo, il numero di operazioni al secondo che può fare un processore equivale più o meno alla sua frequenza, ad esempio 1.2 GHz. Oltre una certa frequenza di esecuzione non si può andare, per motivi fisici e quantistici. Per aumentare le prestazioni si usano quindi altri metodi, in particolare:</p>
 <ul>

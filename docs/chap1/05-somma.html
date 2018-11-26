@@ -152,7 +152,7 @@ memoria, ed effettuare semplici operazioni. Il processore inizia e finisce in un
 </ol>
 <p>OK, sembra che ci siamo. Proviamo a vedere se funziona effettivamente così. Per verificare,
 utilizzeremo il linguaggio C perché è quello che ha meno &quot;passaggi&quot; dal codice sorgente al compilato.</p>
-<pre><code>int main() {
+<pre><code class="language-c">int main() {
   int a = 12;
   int b = 32;
   int c = a + b;
@@ -160,17 +160,17 @@ utilizzeremo il linguaggio C perché è quello che ha meno &quot;passaggi&quot; 
 }
 </code></pre>
 <p>Per salvare questo file in locale, utilizzate l'editor <code>nano</code>.</p>
-<pre><code>$ nano
+<pre><code class="language-sh">$ nano
 </code></pre>
 <p>Ricopiate il codice sopra, salvatelo con <code>ctrl-o</code> con il nome <code>main.c</code>, ed uscite dall'editor con <code>ctrl-x</code>.</p>
 <blockquote>
 <p>Un alternativa più professionale a <code>nano</code> è <code>vim</code>, lo trovate già installato sulla Raspberry. Un tutorial efficace e divertente per imparare a usare vim è <a href="https://vim-adventures.com/">Vim Adventures</a>.</p>
 </blockquote>
 <p>Ora compiliamo il file con <code>gcc</code> e ci facciamo generare l'assembly con l'opzione <code>-S</code>:</p>
-<pre><code>$ gcc -S main.c
+<pre><code class="language-sh">$ gcc -S main.c
 </code></pre>
 <p>Otteniamo un output simile al seguente:</p>
-<pre><code>.arch armv6
+<pre><code class="language-text">.arch armv6
 .eabi_attribute 28, 1
 .eabi_attribute 20, 1
 .eabi_attribute 21, 1
@@ -217,7 +217,7 @@ bx	lr
 <p>Potete eseguire questi passi anche da Android. Dovrete installare prima gli strumenti di sviluppo con il comando <code>pkg install build-essential</code>.</p>
 </blockquote>
 <p>La parte che ci interessa è quella all'interno della sezione <code>main:</code>.</p>
-<pre><code>mov	r3, #12
+<pre><code class="language-text">mov	r3, #12
 str	r3, [fp, #-8]
 mov	r3, #32
 str	r3, [fp, #-12]
