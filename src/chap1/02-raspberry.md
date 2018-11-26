@@ -70,7 +70,7 @@ Se avete un computer con il sistema operativo Linux (es. Ubuntu o Mint), potete 
 ## Analisi software e hardware
 Dal terminale voi avete pieno controllo di tutto il sistema della vostra macchina. Cominciamo con richiedere le informazioni essenziali attraverso il seguente comando. **ATTENZIONE**: i comandi nelle guide come questa per convenzione vengono preceduti dal carattere dollaro `$`, per far capire che è un comando da terminale; voi **non** dovete copiare il dollaro! Tutto ciò che segue e che non è preceduto dal dollaro, è l'output del terminale (cioé quello che viene restituito dal comando).  
 
-```
+```sh
 $ uname -a
 Linux raspberrypi 4.9.80-v7+ #1098 SMP Fri Mar 9 19:11:42 GMT 2018 armv7l GNU/Linux
 ```
@@ -87,7 +87,8 @@ Possiamo vedere qui che il processore ha una archiettura di tipo [ARM](https://i
 > Se usate il vostro smartphone Android, avrete dei risultati leggermente diversi ma comunque simili.
 
 Analizziamo meglio il processore attraverso il comando `lscpu`:
-```
+
+```sh
 $ lscpu
 Architecture:          armv7l
 Byte Order:            Little Endian

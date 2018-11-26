@@ -26,7 +26,8 @@ int main() {
 ```
 
 Per salvare questo file in locale, utilizzate l'editor `nano`.
-```bash
+
+```sh
 $ nano
 ```
 
@@ -36,7 +37,7 @@ $ nano
 
 Ora compiliamo il file con `gcc` e ci facciamo generare l'assembly con l'opzione `-S`:
 
-```bash
+```sh
 $ gcc -S main.c
 ```
 
@@ -90,6 +91,7 @@ bx	lr
 > Potete eseguire questi passi anche da Android. Dovrete installare prima gli strumenti di sviluppo con il comando `pkg install build-essential`.
 
 La parte che ci interessa è quella all'interno della sezione `main:`.
+
 ```text
 mov	r3, #12
 str	r3, [fp, #-8]
@@ -100,6 +102,7 @@ ldr	r3, [fp, #-12]
 add	r3, r2, r3
 str	r3, [fp, #-16]
 ```
+
 Le operazioni che può eseguire il processore sono quelle più a sinistra:
 - `mov`: move, copia un valore costante in un registro
 - `str`: store register, copia il valore dal registro alla memoria ad un certo indirizzo

@@ -23,7 +23,8 @@ La somma di interi in binario funziona esattamente come la somma in decimale che
 - il riporto deve essere fatto quando si supera il valore `1` (e non `9`)
 
 Ad esempio:
-```
+
+```text
 // Quanto fa 6+5?
 2 --converto in binario--> 10
 3 --converto in binario--> 11
@@ -53,7 +54,7 @@ Come rappresentiamo i numeri negativi? Ricordiamoci che il processore capisce so
 
 Una soluzione che sembra semplice, ed è stata utilizzata nei primi anni dell'informatica (anni '50 e '60 del secolo scorso) è quella di usare il primo bit del numero come segno. Questo rappresentazione è chiamata _complemento a uno_. Ipotizziamo di avere una rappresentazione del nostro numero binario a 4 bit:
 
-```
+```text
 // Primo bit 0, numero positivo
 0101  --> +5
 // Primo bit 1, numero negativo
@@ -71,7 +72,8 @@ Attualmente tutti i processori e relative ALU utilizzano un altro sistema, chiam
 1. sommo 1
 
 Esempio:
-```
+
+```text
 // Voglio rappresentare il numero -5
 // 1. prendo il valore positivo
 0101
@@ -83,7 +85,8 @@ Esempio:
 Quindi la rappresentazione di `-5` in complemento a due è `1011`.
 
 Per tornare da rappresentazione binaria in complemento a due a decimale, basta fare l'operazione inversa:
-```
+
+```text
 // Quanto vale 1001?
 // 1. sottraggo 1
 1000
@@ -96,7 +99,7 @@ Per tornare da rappresentazione binaria in complemento a due a decimale, basta f
 ## Somma con numeri negativi
 In questo modo fare le somme tra numeri è "gratis": posso eseguire la somma come abbiamo già imparato, ricordandoci che una sottrazione può sempre essere riscritta come una somma tra numeri con segno.
 
-```
+```text
 // Quanto fa 7-5?
 // La sottrazione può essere riscritta come: 7+(-5)
 // Converto i numeri in binario
