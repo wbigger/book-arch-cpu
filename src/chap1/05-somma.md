@@ -16,7 +16,7 @@ Proviamo a scomporre in piccoli passi:
 OK, sembra che ci siamo. Proviamo a vedere se funziona effettivamente così. Per verificare,
 utilizzeremo il linguaggio C perché è quello che ha meno "passaggi" dal codice sorgente al compilato.
 
-```
+```c
 int main() {
   int a = 12;
   int b = 32;
@@ -26,7 +26,7 @@ int main() {
 ```
 
 Per salvare questo file in locale, utilizzate l'editor `nano`.
-```
+```bash
 $ nano
 ```
 
@@ -36,13 +36,13 @@ $ nano
 
 Ora compiliamo il file con `gcc` e ci facciamo generare l'assembly con l'opzione `-S`:
 
-```
+```bash
 $ gcc -S main.c
 ```
 
 Otteniamo un output simile al seguente:
 
-```
+```text
 .arch armv6
 .eabi_attribute 28, 1
 .eabi_attribute 20, 1
@@ -90,7 +90,7 @@ bx	lr
 > Potete eseguire questi passi anche da Android. Dovrete installare prima gli strumenti di sviluppo con il comando `pkg install build-essential`.
 
 La parte che ci interessa è quella all'interno della sezione `main:`.
-```
+```text
 mov	r3, #12
 str	r3, [fp, #-8]
 mov	r3, #32
