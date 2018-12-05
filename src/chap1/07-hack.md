@@ -11,6 +11,6 @@ Meltdown e Spectre si basano su alcune strategie di ottimizzazione del processor
 - _out-of-order processing_: le istruzioni vengono riordinate per cercare di eseguirne il più possibile ad ogni ciclo
 - _branch prediction_: il corpo all'interno dei condizionali (es. `if`) viene eseguito prima di fare il controllo della condizione stessa, sempre per cercare di fare più operazioni ad ogni ciclo e non lasciare mai il processore sotto-utilizzato.
 
-Non tutti i processori usano queste strategie: ad esempio i Cortex-A7 e Cortex-A53 non le usano e non sono quindi vulnerabili a Meltdown e Spectre.
+Non tutti i processori usano queste strategie: ad esempio i [Cortex-A53](https://en.wikipedia.org/wiki/ARM_Cortex-A53) usati dalla Raspberry PI 3+ non le usano e non sono quindi vulnerabili a Meltdown e Spectre.
 
 > Per appofondimenti su questo tema, si consiglia caldamente la lettura di [questo post](https://www.raspberrypi.org/blog/why-raspberry-pi-isnt-vulnerable-to-spectre-or-meltdown/).
